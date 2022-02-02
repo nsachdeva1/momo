@@ -1,4 +1,4 @@
-# basic starter code for a class that can be expanded to handle callbacks, attachents (buttons, etc) and more!
+# Basic slash command that simply returns the input
 class Slash():
 
   def __init__(self, message):
