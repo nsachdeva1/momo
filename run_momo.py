@@ -26,7 +26,7 @@ def command():
 
 # In the channel the slash command /pokemomo was used, post message from "commander"
 # commander uses the Slash class which always returns self (a monkey emoji, see below)
-# This was just practice using the Slash command 
+# This was just practice using the Slash command
   try:
     response = slack_client.chat_postMessage(
       channel='#{}'.format(info["channel_name"]),
@@ -56,7 +56,7 @@ def handle_message(event_data):
     if "pet" in message.get('text'):
         channel = message["channel"]
         try:
-            filepath="./momo_pet.gif"
+            filepath="media\momo_pet.gif"
             response = slack_client.files_upload(
                 channels=channel,
                 file=filepath)
@@ -72,9 +72,9 @@ def handle_message(event_data):
         channel = message["channel"]
         try:
             if round(random.random()) == 0:
-                filepath="./momo_apple.gif"
+                filepath="media\momo_apple.gif"
             else :
-                filepath="./momo_melon.gif"
+                filepath="media\momo_melon.gif"
             response = slack_client.files_upload(
                 channels=channel,
                 file=filepath)
@@ -105,7 +105,7 @@ def handle_message(event_data):
     elif message.get("subtype") is None and "momo" in message.get('text'):
         channel = message["channel"]
         try:
-            filepath="./momo_tilt.gif"
+            filepath="media\momo_tilt.gif"
             response = slack_client.files_upload(
                 channels=channel,
                 file=filepath)
@@ -125,11 +125,9 @@ def handle_message(event_data):
         user_info = slack_client.users_info(user=message.get('user'))
         all_users = slack_client.users_list()
         num = len(all_users["members"])
-        # Ignore this, it's for debugging. I left it in because it just prints
-        # to the log, and I find it useful to keep.
         for i in range(num):
-            print(all_users["members"][i]["real_name"])
-            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+            #print(all_users["members"][i]["real_name"])
+            #print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
             if all_users["members"][i]["real_name"] == "Natasha" :
                 user1 = all_users["members"][i]["id"]
             elif all_users["members"][i]["real_name"] == "Tejas" :
